@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <StartupObject>TARpv23_CSharp.MainClass</StartupObject>
+    <ApplicationIcon>rubble_canine_patrol_paw_patrol_icon_263842.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="rubble_canine_patrol_paw_patrol_icon_263842.ico" />
+  </ItemGroup>
+
+</Project>
