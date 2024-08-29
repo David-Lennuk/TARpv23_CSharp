@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TARpv23_CSharp
 {
@@ -39,35 +37,30 @@ namespace TARpv23_CSharp
 
 
             //I.osa Andmetüübid, Alamfunktsioonid, IF
-            string[] nimed = new string[5] { "Anna", "Inna", "Oksana", "Pavel", "Karl" };
+            string[] nime = new string[5] { "Anna", "Inna", "Oksana", "Pavel", "Karl" };
             //1.V
-            for (int i = 0; i < nimed.Length; i++)
+            for (int i = 0; i < nime.Length; i++)
             {
-                Console.WriteLine(nimed[i]);
+                Console.WriteLine(nime[i]);
             }
             //2.v
-            foreach (string nimi in nimed)
+            foreach (string nimi in nime)
             {
                 Console.WriteLine(nimi);
             }
             //3.v
             int n = 0;
-            while (n < nimed.Length)
+            while (n < nime.Length)
             {
-                Console.WriteLine(nimed[n]);
+                Console.WriteLine(nime[n]);
                 n++;
             }
             //4.v
             do
             {
-                Console.WriteLine(nimed[n - 1]);
+                Console.WriteLine(nime[n - 1]);
                 n--;
             } while (n! > 0); //!
-
-
-
-
-
 
 
             for (int i = 0; i < 7; i++)
@@ -97,7 +90,7 @@ namespace TARpv23_CSharp
 
 
 
-            ////1* Loo  juhuslikult arvud N ja M ja sisesta massiivi arvud N'st M'ni. Trüki arvude ruudud ekraanile. N ja M arvud on vahemikus (-100,100).
+            //1* Loo  juhuslikult arvud N ja M ja sisesta massiivi arvud N'st M'ni. Trüki arvude ruudud ekraanile. N ja M arvud on vahemikus (-100,100).
             int N = random.Next(-100, 101);
             int M = random.Next(-100, 101);
             int[] arvud;
@@ -116,60 +109,86 @@ namespace TARpv23_CSharp
             }
 
 
+            // 2* Küsi kasutajalt viis arvu, salvesta neid massiivi ning väljasta nende summa, aritmeetiline keskmine ja korrutis.
+            int[] numbrid = new int[5];
+            int summa = 0;
+            int korrutis = 1;
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Sisesta arv {0}: ", i + 1);
+                numbrid[i] = int.Parse(Console.ReadLine());
+                summa += numbrid[i];
+                korrutis *= numbrid[i];
+            }
+            double keskmine = summa / 5.0;
+            Console.WriteLine("Summa: " + summa);
+            Console.WriteLine("Aritmeetiline keskmine: " + keskmine);
+            Console.WriteLine("Korrutis: " + korrutis);
 
+            // 3* Küsi viielt kasutajalt nimed ja vanused, salvesta nende andmeid massiivi ning väljasta summaarne vanus, aritmeetiline keskmine, vaanema ja noorema inimeste nimed ja vanused.
+            string[] nimed = new string[5];
+            int[] vanused = new int[5];
+            int vanusteSumma = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Sisesta nimi {0}: ", i + 1);
+                nimed[i] = Console.ReadLine();
+                Console.Write("Sisesta vanus {0}: ", i + 1);
+                vanused[i] = int.Parse(Console.ReadLine());
+                vanusteSumma += vanused[i];
+            }
+            double vanusteKeskmine = vanusteSumma / 5.0;
+            int vanimIndex = Array.IndexOf(vanused, vanused.Max());
+            int noorimIndex = Array.IndexOf(vanused, vanused.Min());
+            Console.WriteLine("Summaarne vanus: " + vanusteSumma);
+            Console.WriteLine("Aritmeetiline keskmine vanus: " + vanusteKeskmine);
+            Console.WriteLine("Vanim inimene: " + nimed[vanimIndex] + ", Vanus: " + vanused[vanimIndex]);
+            Console.WriteLine("Noorim inimene: " + nimed[noorimIndex] + ", Vanus: " + vanused[noorimIndex]);
 
+            // 4* Ütle kasutajale "Osta elevant ära!". Senikaua korda küsimust, kuni kasutaja lõpuks ise kirjutab "elevant".
+            string vastuse = "";
+            while (vastuse.ToLower() != "elevant")
+            {
+                Console.WriteLine("Osta elevant ära!");
+                vastuse = Console.ReadLine();
+            }
+            Console.WriteLine("Tänan, et ostsid elevandi!");
 
+            // 5* Mis arv mõtles välja arvuti? Kasuta vähemalt 5 katset, et seda teada.
+            int arvutiArv = random.Next(1, 101);
+            int katsed = 5;
+            bool arvasOige = false;
+            for (int i = 0; i < katsed; i++)
+            {
+                Console.Write("Mis arv mõtles välja arvuti? (1-100): ");
+                int kasutajaArv = int.Parse(Console.ReadLine());
+                if (kasutajaArv == arvutiArv)
+                {
+                    Console.WriteLine("Õige! Arvuti mõtles välja arvu " + arvutiArv);
+                    arvasOige = true;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Vale arv, proovi uuesti.");
+                }
+            }
+            if (!arvasOige)
+            {
+                Console.WriteLine("Sa ei arvanud ära. Arvuti mõtles välja arvu " + arvutiArv);
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //int N = random.Next(-100, 101);
-            //int M = random.Next(-100, 101);
-
-            //// Определение начального и конечного значения для заполнения массива
-            //int start = Math.Min(N, M);
-            //int end = Math.Max(N, M);
-
-            //// Вывод случайных чисел N и M
-            //Console.WriteLine($"Случайные числа: N = {N}, M = {M}");
-
-            //// Вычисление количества элементов в массиве
-            //int size = end - start + 1;
-            //int[] array = new int[size];
-
-            //// Заполнение массива числами от start до end
-            //for (int i = 0; i < size; i++)
-            //{
-            //    array[i] = start + i;
-            //}
-
-            //// Вывод квадратов всех чисел массива
-            //Console.WriteLine("Квадраты чисел от N до M:");
-            //foreach (int num in array)
-            //{
-            //    Console.WriteLine($"{num}^2 = {num * num}");
-            //}
-
+            // 6* Küsi kasutajalt 4 arvu ning väljasta nendest koostatud suurim neliarvuline arv.
+            int[] neliArvu = new int[4];
+            for (int i = 0; i < 4; i++)
+            {
+                Console.Write("Sisesta arv {0}: ", i + 1);
+                neliArvu[i] = int.Parse(Console.ReadLine());
+            }
+            Array.Sort(neliArvu);
+            Array.Reverse(neliArvu);
+            string suurimArv = string.Join("", neliArvu);
+            Console.WriteLine("Suurim võimalik neliarvuline arv: " + suurimArv);
         }
-
     }
 }
