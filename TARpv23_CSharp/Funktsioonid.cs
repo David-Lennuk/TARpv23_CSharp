@@ -59,7 +59,7 @@ namespace TARpv23_CSharp
             }
             return paev;
 
-            
+
         }
         public static string Pikkuse_analuus(double pikkus)
         {
@@ -81,7 +81,7 @@ namespace TARpv23_CSharp
         public static int[] Arvude_massive(int N, int M)
         {
             int arv;
-            int[] arvud = new int[M-N];
+            int[] arvud = new int[M - N];
             for (int i = 0; i < arvud.Length; i++)
             {
                 Console.WriteLine("{0} nimi :", i + 1);
