@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace TARpv23_CSharp
@@ -70,34 +71,34 @@ namespace TARpv23_CSharp
             {
                 Console.WriteLine(pair.Key.RegNumber + "-" + pair.Value.Nimi);
             }
-            //Ülesanne1
-            Console.WriteLine("Sisesta numbrid");
-            string numbstr = Console.ReadLine();
-            string[] numblist = numbstr.Split(" ");
-            int[] newlist = new int[numbstr.Length];
+            ////Ülesanne1
+            //Console.WriteLine("Sisesta numbrid");
+            //string numbstr = Console.ReadLine();
+            //string[] numblist = numbstr.Split(" ");
+            //int[] newlist = new int[numbstr.Length];
 
-            for (int i = 0; i < numblist.Length; i++)
-            {
-                int g;
-                if (i == 0)
-                {
-                    g = int.Parse(numblist[numblist.Length-1]) + int.Parse(numblist[i+1]);
-                }
-                else if (i ==numblist.Length - 1)
-                {
-                    g = int.Parse(numblist[i - 1]) + int.Parse(numblist[0]);
-                }
-                else
-                {
-                    g = int.Parse(numblist[i-1]) + int.Parse(numblist[i+1]);
-                }
+            //for (int i = 0; i < numblist.Length; i++)
+            //{
+            //    int g;
+            //    if (i == 0)
+            //    {
+            //        g = int.Parse(numblist[numblist.Length-1]) + int.Parse(numblist[i+1]);
+            //    }
+            //    else if (i ==numblist.Length - 1)
+            //    {
+            //        g = int.Parse(numblist[i - 1]) + int.Parse(numblist[0]);
+            //    }
+            //    else
+            //    {
+            //        g = int.Parse(numblist[i-1]) + int.Parse(numblist[i+1]);
+            //    }
 
-                newlist[i] = g;
+            //    newlist[i] = g;
 
-            }
+            //}
 
-            Console.WriteLine("New list of sums:");
-            Console.WriteLine(string.Join(" ", newlist));
+            //Console.WriteLine("New list of sums:");
+            //Console.WriteLine(string.Join(" ", newlist));
 
 
 
@@ -119,12 +120,12 @@ namespace TARpv23_CSharp
 
 
 
-            //Ülesanne 3 
+            //Ülesanne 3.1 
             // Toiduainete nimed ja vastavad kalorid
             List<string> tooted = new List<string> { "Õun", "Banaan", "Kanafilee", "Riis", "Jogurt" };
             List<int> kalorid = new List<int> { 52, 89, 165, 130, 60 }; // Kalorid 100 grammi kohta
 
-            //-----------------------------------------------
+            // Kasutaja andmete küsimine
             Console.Write("Sisesta oma sugu (M/N): ");
             char sugu = Char.ToUpper(Console.ReadLine()[0]);
 
@@ -137,7 +138,7 @@ namespace TARpv23_CSharp
             Console.Write("Sisesta oma vanus (aastad): ");
             int vanus = int.Parse(Console.ReadLine());
 
-            //------------------------------------
+            // Harris-Benedict'i valemi põhjal SBI arvutamine
             double SBI;
             if (sugu == 'M')
             {
@@ -148,7 +149,7 @@ namespace TARpv23_CSharp
                 SBI = 655 + (9.6 * kaal) + (1.8 * pikkus) - (4.7 * vanus);
             }
 
-            //--------------------------------------------
+            // Kasutaja aktiivsuse tase
             Console.WriteLine("Vali oma aktiivsuse tase:");
             Console.WriteLine("1. Istuv eluviis");
             Console.WriteLine("2. Vähene aktiivsus (1-3 korda nädalas)");
@@ -157,7 +158,7 @@ namespace TARpv23_CSharp
             Console.WriteLine("5. Väga kõrge aktiivsus (treening 2 korda päevas)");
             int aktiivsuseValik = int.Parse(Console.ReadLine());
 
-            //-----------------------------------------
+            // Päevase kaloraaži arvutamine aktiivsuse taseme järgi
             double aktiivsusKoef = aktiivsuseValik switch
             {
                 1 => 1.2,
@@ -165,122 +166,29 @@ namespace TARpv23_CSharp
                 3 => 1.55,
                 4 => 1.725,
                 5 => 1.9,
-                _ => 1.2
+                _ => 1.2 // Vaikimisi istuv eluviis, kui sisestatakse vale valik
             };
 
             double paevaneKaloraaž = SBI * aktiivsusKoef;
             Console.WriteLine($"Sinu päevane kaloraaž on umbes {paevaneKaloraaž:F2} kalorit.");
 
-            //------------------------------------------------------------
+            // Toiduainete ja nende päevase koguse väljastamine
             Console.WriteLine("\nToiduainete loetelu ja soovitatav kogus (grammides):");
             for (int i = 0; i < tooted.Count; i++)
             {
                 double maxKogus = (paevaneKaloraaž / kalorid[i]) * 100; // Kalorid 100g kohta
                 Console.WriteLine($"{tooted[i]}: kuni {maxKogus:F0} grammi päevas");
-            }
 
 
+            ////Ülesanne 3.2
+            //Console.WriteLine("Mis on sinu eluviis? 0-4");
+            //inimene1.Eluviis = (Eluviis)Convert.ToInt32(Console.ReadLine());
 
-
-
-
-                ////II.1 osa Listid ja sõnastikud
-                //List<string> abc = new List<string>();
-                //try
-                //{
-                //    foreach (string rida in File.ReadAllLines (@"..\..\..\ABC.txt"))
-                //    { 
-                //        abc.Add(rida);
-                //    }
-
-                //}
-                //catch (Exception)
-                //{
-
-                //    Console.WriteLine("Fail ei saa leida!");
-                //}
-                //foreach (string e in abc)
-                //{ 
-                //    Console.WriteLine(e);
-                //}
-                //Console.ReadLine();
-
-                //    //II.2 osa Listid ja sõnastikud
-                //    ArrayList arrayList = new ArrayList();
-                //arrayList.Add("Esimene");
-                //arrayList.Add("Teine");
-                //arrayList.Add("Kolmas");
-                //Console.WriteLine("Otsing: ");
-                //string vas = Console.ReadLine();
-                //if (vas != null && arrayList.Contains(vas))
-                //{
-                //    Console.WriteLine("Otsitav element asub " + arrayList.IndexOf(vas) + ". kohal");
-                //}
-                //else
-                //{ 
-                //    Console.WriteLine("Kokku oli " + arrayList.Count + "elemente, vaid otsitav puudub");
-                //}
-                //arrayList.Clear();
-                //arrayList.Insert(1, "Anna");
-                //arrayList.Insert(2, "Inna");
-                //foreach (string e in arrayList)
-                //{
-                //    Console.WriteLine(e);
-                //}
-
-
-
-                ////I.osa Andmetüübid, Alamfunktsioonid, IF
-                //string[] nime = new string[5] { "Anna", "Inna", "Oksana", "Pavel", "Karl" };
-                ////1.V
-                //for (int i = 0; i < nime.Length; i++)
-                //{
-                //    Console.WriteLine(nime[i]);
-                //}
-                ////2.v
-                //foreach (string nimi in nime)
-                //{
-                //    Console.WriteLine(nimi);
-                //}
-                ////3.v
-                //int n = 0;
-                //while (n < nime.Length)
-                //{
-                //    Console.WriteLine(nime[n]);
-                //    n++;
-                //}
-                ////4.v
-                //do
-                //{
-                //    Console.WriteLine(nime[n - 1]);
-                //    n--;
-                //} while (n! > 0); //!
-
-
-                //for (int i = 0; i < 7; i++)
-                //{
-                //    int paev_nr = random.Next(-4, 30);
-                //    string paeva_nimetus = Funktsioonid.Paevad(paev_nr);
-                //    Console.WriteLine(paeva_nimetus);
-                //}
-
-
-
-                //try
-                //{
-
-
-
-
-                //    Console.WriteLine("Mis on sinu pikkus?");
-                //    double pikkus = Double.Parse(Console.ReadLine());
-                //    string vastus1 = Funktsioonid.Pikkuse_analuus(pikkus);
-                //    Console.WriteLine("Sinu pikkus on {0}, sa oled {1}", pikkus, vastus1);
-                //}
-                //catch (Exception e)
-                //{
-                //    Console.Write(e.ToString());
-                //}
+            //foreach  (Inimene inimene in inimesed)
+            //{
+            //    Console.WriteLine(inimene.Nimi + " on " + inimene.Vanus + " aasta vana " + ".Ta on " + inimene.Sugu + "SBI =" + inimene.HB_vorrand(inimene.Eluviis));
+            //}
+                                                        
 
 
 
@@ -387,3 +295,5 @@ namespace TARpv23_CSharp
         }
     }
 }
+
+
