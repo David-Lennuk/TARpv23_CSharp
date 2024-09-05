@@ -180,15 +180,17 @@ namespace TARpv23_CSharp
                 Console.WriteLine($"{tooted[i]}: kuni {maxKogus:F0} grammi päevas");
 
 
-            ////Ülesanne 3.2
-            //Console.WriteLine("Mis on sinu eluviis? 0-4");
-            //inimene1.Eluviis = (Eluviis)Convert.ToInt32(Console.ReadLine());
+                ////Ülesanne 3.2
+                //Console.WriteLine("Mis on sinu eluviis? 0-4");
+                //inimene1.Eluviis = (Eluviis)Convert.ToInt32(Console.ReadLine());
 
-            //foreach  (Inimene inimene in inimesed)
-            //{
-            //    Console.WriteLine(inimene.Nimi + " on " + inimene.Vanus + " aasta vana " + ".Ta on " + inimene.Sugu + "SBI =" + inimene.HB_vorrand(inimene.Eluviis));
-            //}
-                                                        
+                //foreach  (Inimene inimene in inimesed)
+                //{
+                //    Console.WriteLine(inimene.Nimi + " on " + inimene.Vanus + " aasta vana " + ".Ta on " + inimene.Sugu + "SBI =" + inimene.HB_vorrand(inimene.Eluviis));
+                //}
+
+
+
 
 
 
@@ -295,5 +297,3 @@ namespace TARpv23_CSharp
         }
     }
 }
-
-
