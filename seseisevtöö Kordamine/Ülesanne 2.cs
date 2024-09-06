@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 //Ü 2. В массиве строк (список фамилий) определите самую длинную фамилию.
 
 
 namespace TARpv23_CSharp
 {
-    class Program2
+    public static class Program2
     {
-        static void Ulesanne2()
+        public static void Ulesanne2()
         {
             // Stringide massiivi näide (perekonnanimede loend)
             string[] surnames = { "Ivanov", "Viktor", "Lennuk", "Kudriašev", "Baširov" };
