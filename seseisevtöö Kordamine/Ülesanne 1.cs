@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 //Ü 1. Задан генератором случайных чисел одномерный массив из действительных чисел. Найдите максимальное и минимальное число этого массива, не используя функции max(), min().
 
 namespace TARpv23_CSharp
 {
-    class Program1
+    public static class Program1
     {
-        static void Ulesanne1()
+        public static void Ulesanne1()
         {
             // Loome juhuslike arvude generaatori ja initsialiseerime massiivi
             Random random = new Random();
