@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Text;
 
 namespace TARpv23_CSharp
 {
-    internal class MainClass
+    public static class MainClass
     {
         public static void Main(string[] args)
         {
