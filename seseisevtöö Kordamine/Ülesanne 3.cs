@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 //Ü 3. Надо спросить у пользователя его имя. Разбить имя на буквы, сохранить их в соответствующем массиве, вывести его на экран и посчитать сколько в имени гласных и согланых букв.
 
 namespace TARpv23_CSharp
 {
-    class Program3
+    public static class Program3
     {
-        static void Ulesanne3()
+        public static void Ulesanne3()
         {
             // Küsime kasutajalt nime
             Console.Write("Sisestage oma nimi: ");
